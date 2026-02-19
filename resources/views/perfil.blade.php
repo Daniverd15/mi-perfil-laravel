@@ -82,10 +82,13 @@
             </div>
         </section>
 
-        <footer class="footer muted">
+        
+
+    </main>
+
+    <footer class="footer muted">
             Taller Laravel UNAB
         </footer>
 
-    </main>
 </body>
 </html>

@@ -30,6 +30,7 @@ body{
     radial-gradient(900px 500px at 15% 10%, rgba(255,122,24,0.18), transparent 60%),
     radial-gradient(900px 500px at 85% 20%, rgba(175,0,45,0.15), transparent 55%),
     var(--bg);
+    background-attachment: fixed;
 }
 
 a{
@@ -193,4 +194,179 @@ p{
   .grid{
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================
+   COMMIT 9: Mejoras de diseño y ajustes visuales
+   ========================= */
+
+/* Header alineado al ancho del contenido + sticky */
+.topbar{
+  width: min(980px, calc(100% - 32px));
+  margin: 16px auto 0;
+  position: sticky;
+  top: 14px;
+  z-index: 50;
+}
+
+/* Card principal centrada (por si alguna vista no usa container igual) */
+.card{
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Un poco más de profundidad y coherencia en cajas internas */
+.card-inner{
+  box-shadow: 0 10px 28px rgba(0,0,0,0.20);
+}
+
+/* Que las tarjetas del grid queden “parejas” */
+.grid{
+  align-items: stretch;
+}
+.card-inner{
+  height: 100%;
+}
+
+/* Mejor legibilidad */
+h2, h3{
+  letter-spacing: 0.2px;
+}
+.list li{
+  line-height: 1.65;
+}
+
+/* Estilo para bloques <code> (lo usas en habilidades) */
+code{
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95em;
+}
+
+/* Accesibilidad: foco visible al navegar con teclado */
+.nav a:focus-visible{
+  outline: 2px solid rgba(255,122,24,0.70);
+  outline-offset: 3px;
+}
+
+/* Responsive más cómodo en pantallas pequeñas */
+@media (max-width: 520px){
+  .nav{
+    width: 100%;
+  }
+  .nav a{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- Ajuste de contraste para que el fondo no “contamine” el contenido --- */
+
+/* Cards más opacas */
+.card{
+  background: rgba(15, 26, 46, 0.88); /* más sólido que antes */
+}
+
+.card-inner{
+  background: rgba(0,0,0,0.18);       /* un poco más sólido */
+}
+
+/* Más aire abajo para que el footer no caiga sobre zonas de color fuerte */
+.container{
+  padding-bottom: 80px;
+}
+
+/* Footer con “pastilla” para que siempre se lea bien */
+.footer{
+  width: fit-content;
+  margin: 18px auto 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(233,238,252,0.85);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.55);
+}
+
+/* =========================
+   Footer como pie de página real (sin “pastilla” flotante)
+   ========================= */
+
+/* Quitar el espacio extra abajo que hacía ver el degradado “raro” */
+.container{
+  padding-bottom: 24px; /* antes estaba muy grande */
+}
+
+/* Estructura para que el footer quede al final (si la página es corta) */
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El main ocupa el espacio disponible */
+main.container{
+  flex: 1;
+}
+
+/* Footer centrado, con fondo y borde (separado del degradado) */
+.footer{
+  width: min(980px, calc(100% - 32px));
+  margin: 18px auto 18px;
+  padding: 12px 16px;
+  text-align: center;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.28);
+
+  color: rgba(233,238,252,0.85);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.55);
+}
+
+/* Capa decorativa inferior (sin tocar tu contenido) */
+body::after{
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45vh;                 /* qué tanto se ve abajo */
+  pointer-events: none;
+  z-index: -1;
+
+  /* Degradado parecido al de arriba pero en la parte inferior */
+  background:
+    radial-gradient(900px 500px at 15% 85%, rgba(255,122,24,0.22), transparent 60%),
+    radial-gradient(900px 500px at 85% 90%, rgba(175,0,45,0.18), transparent 55%);
+}
+
+/* =========================
+   Consistencia de ancho: header / contenido / footer
+   ========================= */
+
+/* El espacio lateral lo damos al body para que todo “calce” igual */
+body{
+  padding: 0 16px;
+}
+
+/* Quitamos el padding lateral del container (era lo que angostaba el contenido) */
+.container{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Mismo ancho para header, main y footer */
+.topbar,
+main.container,
+.footer{
+  width: 100%;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
 }
