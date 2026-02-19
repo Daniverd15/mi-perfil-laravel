@@ -1,59 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Taller Básico Laravel – Mi Perfil (UNAB)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción breve
+Proyecto desarrollado para el **Taller Básico de Introducción a Laravel (UNAB)**.  
+La aplicación muestra un perfil personal dividido en cuatro secciones (**Perfil**, **Intereses**, **Habilidades** y **Metas**) utilizando **rutas en `web.php`** y **vistas Blade**.  
+El diseño se realiza con **CSS propio (sin Bootstrap)**, aplicando tipografía legible, paleta de colores, espaciados consistentes y ajustes responsive.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requisitos del sistema
+- **PHP** (compatible con la versión de Laravel usada en el proyecto)
+- **Composer**
+- Terminal (PowerShell/CMD/Git Bash)
+- Navegador web (Chrome/Edge/Firefox)
+- Servidor local:
+  - Recomendado: **servidor integrado de Laravel** con `php artisan serve`
+  - Alternativa: **XAMPP/WAMP/MAMP** (apuntando a la carpeta `public/`)
+- (Opcional) **Git** (si deseas clonar y manejar commits)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> Nota: Este taller **no requiere base de datos**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Instrucciones de instalación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Opción A — Instalación con Git (clonar repositorio)
+1. Clona el repositorio:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+2. Entra a la carpeta del proyecto:
+   ```bash
+   cd nombre-del-proyecto
+3. Instala dependencias:
+   ```bash
+   composer install
+4. Crea el archivo .env a partir del ejemplo:
+   ```bash
+   Linux/Mac/Git Bash
+   
+   cp .env.example .env
+   
+   Windows (PowerShell)
+   
+   Copy-Item .env.example .env
+   
+   Windows (CMD)
+   
+   copy .env.example .env
+5. Genera la clave de la aplicación:
+   ```bash
+   php artisan key:generate
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Opción B — Instalación sin Git (descargar ZIP)
+1. Descarga el proyecto como archivo ZIP.
 
-## Laravel Sponsors
+2. Descomprime el ZIP en una carpeta local (ejemplo: Documentos/mi-perfil-laravel/).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Abre una terminal dentro de la carpeta del proyecto.
 
-### Premium Partners
+4. Instala dependencias:
+   ```bash
+   composer install
+5. Crea el archivo .env:
+     ```bash
+     Windows (PowerShell)
+   
+     Copy-Item .env.example .env
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+     Windows (CMD)
 
-## Contributing
+     copy .env.example .env
+     
+     Linux/Mac/Git Bash
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+     cp .env.example .env
+6. Genera la clave de la aplicación:
+    ```bash
+    php artisan key:generate
+---
 
-## Code of Conduct
+### Cómo ejecutar el proyecto
+Opción recomendada — Servidor integrado de Laravel
+1. Inicia el servidor:
+   ```bash
+   php artisan serve
+2. Abre en el navegador:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- http://127.0.0.1:8000/perfil
 
-## Security Vulnerabilities
+- http://127.0.0.1:8000/perfil/intereses
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- http://127.0.0.1:8000/perfil/habilidades
 
-## License
+- http://127.0.0.1:8000/perfil/metas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> Para detener el servidor: CTRL + C en la terminal.
+
+---
+### Opción alternativa — XAMPP/Apache
+Laravel funciona correctamente cuando el servidor web apunta a la carpeta public/.
+
+1. Coloca el proyecto dentro de htdocs (si usas XAMPP).
+
+2. Configura tu servidor para que apunte a:
+    ```text
+    nombre-del-proyecto/public
+3. Accede en el navegador (ejemplo):
+    ```bash
+    http://localhost/nombre-del-proyecto/public/perfil
+---
+### Documentación del proyecto
+Rutas disponibles
+| Ruta                  | Vista                   | Descripción                               |
+| --------------------- | ----------------------- | ----------------------------------------- |
+| `/perfil`             | `perfil.blade.php`      | Muestra información general del perfil    |
+| `/perfil/intereses`   | `intereses.blade.php`   | Muestra intereses y pasatiempos           |
+| `/perfil/habilidades` | `habilidades.blade.php` | Muestra habilidades técnicas              |
+| `/perfil/metas`       | `metas.blade.php`       | Muestra metas a corto/mediano/largo plazo |
+
+
+Estructura de archivos relevante
+
+- routes/web.php
+
+  Contiene las rutas del taller.
+- resources/views/
+
+  Contiene las vistas Blade:
+
+  - perfil.blade.php
+
+  - intereses.blade.php
+
+  - habilidades.blade.php
+
+  - metas.blade.php
+
+- public/css/estilos.css
+
+Archivo de estilos CSS propio (sin Bootstrap).
+
+Enlace del CSS en las vistas
+
+Todas las vistas enlazan el CSS así:
+
+<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+
+---
+
+### Solución de problemas (rápida)
+- Composer no se reconoce: reinstala Composer o revisa PATH y reinicia la terminal.
+
+- PHP no se reconoce: revisa instalación de PHP/XAMPP y PATH (php -v).
+
+- CSS no carga: confirma public/css/estilos.css y recarga con CTRL + F5.
+
+- “View not found”: verifica que la vista exista en resources/views/ y el nombre coincida con la ruta.
+
+---
+
+### Autor y fecha
+- Autor: Daniel Enrique Villamizar Ramírez
+
+- Fecha: 2026-02-18
+
